@@ -20,7 +20,7 @@ class Course extends Model
         'name',
         'thumbnail',
         'about',
-        'isPopular',
+        'is_popular',
         'category_id'
     ];
 
