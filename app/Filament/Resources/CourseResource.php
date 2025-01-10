@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CourseResource\Pages;
-use App\Filament\Resources\CourseResource\RelationManagers;
+use App\Filament\Resources\CourseResource\RelationManagers\CourseSectionsRelationManager;
 use App\Models\Course;
 use Filament\Forms;
 use Filament\Forms\Components\Fieldset;
@@ -112,6 +112,7 @@ class CourseResource extends Resource
     {
         return [
             //
+            CourseSectionsRelationManager::class
         ];
     }
 
