@@ -32,7 +32,7 @@ class Transaction extends Model
 
     public function pricing()
     {
-        return $this->belongsTo(Pricing::class, 'pricind_id');
+        return $this->belongsTo(Pricing::class, 'pricing_id');
     }
 
     public function student()
