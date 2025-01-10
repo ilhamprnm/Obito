@@ -16,7 +16,7 @@ class CourseMentor extends Model
         'user_id',
         'course_id',
         'about',
-        'isActice',
+        'is_active',
     ];
 
     public function course() : BelongsTo
