@@ -1,10 +1,20 @@
 <?php
 
 use App\Models\Course;
+use App\Repositories\CourseRepository;
 use Illuminate\Support\Facades\Auth;
 
 class CourseService 
 {
+  protected $courseRepository;
+
+  public function __construct(
+    CourseRepository $courseRepository,
+  )
+  {
+    $this->courseRepository = $courseRepository;
+  }
+
   public function enrollUser (Course $course)
   {
     $user = Auth::user();
@@ -40,7 +50,7 @@ class CourseService
 
     $currentContent = $currentSection ? $currentSection->sectionContents->find($sectionContentId) : null;
 
-    //Determin next content
+    //Determine next content
     $nextContent = null;
 
     if ($currentContent) {
@@ -69,5 +79,19 @@ class CourseService
       'isFinished' => !$nextContent,
     ];
     
+  }
+
+  public function searchCourses(String $keyword)
+  {
+    return $this->courseRepository->searchByKeyword($keyword);
+  }
+
+  public function getCoursesGroupedByCategory()
+  {
+    $courses = $this->courseRepository->getAllWithCategory();
+
+    return $courses->groupBy(function ($course) {
+      return $course->category->name ?? 'Uncategorized';
+    });
   }
 }
