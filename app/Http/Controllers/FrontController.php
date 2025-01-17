@@ -52,7 +52,7 @@ class FrontController extends Controller
     public function paymentStoreMidtrans()
     {
         try {
-            $pricingId = session()->got('pricing_id');
+            $pricingId = session()->get('pricing_id');
 
             if(!$pricingId) {
                 return response()->json(['error' => 'No pricing data found in the session'], 400);
