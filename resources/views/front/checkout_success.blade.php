@@ -1,5 +1,5 @@
 @extends('front.layouts.app')
-@section('title', 'Checkout - Obito')
+@section('title', 'Checkout Success - Obito')
 @section('content')
 <x-navigation-auth />
 <nav id="bottom-nav" class="flex w-full bg-white border-b border-obito-grey py-[14px]">
