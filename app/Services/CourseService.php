@@ -35,7 +35,7 @@ class CourseService
   {
     $firstSectionId = $course->courseSections()->orderBy('id')->value('id');
     $firstContentId = $firstSectionId
-      ? $course->courseSection()->find($firstSectionId)->sectionContents()->orderBy('id')->value('id')
+      ? $course->courseSections()->find($firstSectionId)->sectionContents()->orderBy('id')->value('id')
       : null;
 
     return [
