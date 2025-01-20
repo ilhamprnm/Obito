@@ -37,9 +37,9 @@ class MidtransService {
       return [
         'order_id' => $notification->order_id,
         'transaction_status' => $notification->transaction_status,
-        'gorss_amount' => $notification->gross_amount,
-        'custom_field1' => $notification->field1,
-        'custom_field2' => $notification->field2,
+        'gross_amount' => $notification->gross_amount,
+        'custom_field1' => $notification->custom_field1,
+        'custom_field2' => $notification->custom_field2,
       ];
     } catch (\Exception $e) {
       Log::error('Failed to create snap token : ' . $e->getMessage());

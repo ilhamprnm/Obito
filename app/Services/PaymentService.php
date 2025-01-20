@@ -74,7 +74,7 @@ class PaymentService
       $notification = $this->midtransService->handleNotification();
 
       if (in_array($notification['transaction_status'], ['capture', 'settlement'])) {
-        $pricing = Pricing::findOrFail($notification['custome_field2']);
+        $pricing = Pricing::findOrFail($notification['custom_field2']);
         // $pricing = $this->pricingRepository->findById($notification['custom_field2']); jika ingin menggunakan repository
         $this->createTransaction($notification, $pricing);
       }
@@ -88,8 +88,8 @@ class PaymentService
       $endedAt = $startedAt->copy()->addMonths($pricing->duration);
 
       $transactionData = [
-        'user_id' => $notification['custome_field1'],
-        'pricing_id' => $notification['custome_field2'],
+        'user_id' => $notification['custom_field1'],
+        'pricing_id' => $notification['custom_field2'],
         'sub_total_amount' => $pricing->price,
         'total_tax_amount' => $pricing->price * 0.11,
         'grand_total_amount' => $notification['gross_amount'],
