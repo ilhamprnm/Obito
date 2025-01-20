@@ -10,12 +10,6 @@
   ],
   "public" : true,
   "buildCommand" : "vite build",
-  "outputDirectory": "public",
-  "builds": [
-    {
-      "src": "api/*.php",
-      "use": "@vercel/php"
-    }
-  ]
+  "outputDirectory": "public"
 
 }
